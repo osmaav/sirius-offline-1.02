@@ -1,1 +1,243 @@
-#
+/*
+#34 Перенес созданные мной стили в отдельный файл для удобства использования style.css
+
+#2 @osmaav добавил стили для анимации сообщения в шапке
+*/
+#myblinkmessage {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: blink 0.7s linear 5;
+  opacity: 0;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*
+#3 @osmaav добавил стили для подсветки вкладок и кнопок
+*/
+
+#configMenu li.active {
+  background: white linear-gradient(white, #76dbfa) !important;
+}
+
+#configMenu li.active:hover {
+  background: white linear-gradient(white, #76dbfa) !important;
+}
+
+button:disabled,
+button.button:disabled,
+button.button:disabled:hover,
+button:disabled:hover {
+  color: #ccc !important;
+  box-shadow: none !important;
+}
+
+div.program_step:hover,
+input[type='button']:hover,
+button:hover,
+button.button:hover,
+#configMenu li:hover,
+div.button:hover,
+span.button:hover,
+#mybutton:hover {
+  box-shadow: 2px 3px 3px #76dbfa !important;
+}
+
+#configItems [class^='add_config_item'],
+#configItems [class^='add_config_item']:hover,
+[type='button'],
+input[type*='button'] {
+  border-radius: 8px !important;
+  background-color: white !important;
+}
+
+#configItems span[class^='add_config_item']:active,
+div.button.active {
+  background: white linear-gradient(white, #76dbfa) !important;
+}
+
+#add_step_button:hover,
+span[class='select-all']:hover,
+span[class^='add_config_item']:active:hover,
+span[class^='add_config_item']:hover,
+input[type='button'].save:hover {
+  box-shadow: 2px 3px 3px #54f754 !important;
+}
+
+[class*='modal-custom-close']:hover,
+input[type='button'].del:hover,
+input[type='button'].reboot-button:hover {
+  box-shadow: 2px 3px 3px #f75454 !important;
+  background-color: white !important;
+}
+
+/*
+#25 добавил стиль для кнопок
+*/
+
+.mydivbutton {
+  display: inline-block !important;
+}
+
+#mybutton {
+  margin-top: 5px !important;
+  margin-left: 0px !important;
+  margin-right: 7px !important;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 2px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  font-size: 12px !important;
+}
+
+/*
+#24 добавил стили для кнопки закрыть
+*/
+
+.close-container {
+  position: absolute;
+  top: 0;
+  right: 2;
+  width: 18px;
+  height: 22px;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+.leftright {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  height: 4px;
+  width: 20px;
+  background-color: #fa7907;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: all 0.3s ease-in;
+}
+
+.rightleft {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  height: 4px;
+  width: 20px;
+  background-color: #fa7907;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transition: all 0.3s ease-in;
+}
+
+.close-container label {
+  position: fixed;
+  padding: 0px;
+  top: 28px;
+  right: 0px;
+  width: 5px;
+  color: red;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  transition: all 0.5s ease-in;
+  opacity: 0;
+}
+
+.close-container:hover .leftright {
+  transform: rotate(-45deg);
+  background-color: red;
+}
+
+.close-container:hover .rightleft {
+  transform: rotate(45deg);
+  background-color: red;
+}
+
+.close-container:hover label {
+  opacity: 1;
+  right: 18px;
+  width: max-content;
+}
+
+/*
+#27 @osmaav Добавил стили для того, чтобы в диалоговом окне "Добавьте зоны" при прокрутке (когда список зон больше размеров окна) название окна и кнопка Закрыть не прокручивались вместе со списком.
+*/
+
+body > div.related-zone-box > div > ul {
+  display: flex !important;
+  flex-direction: column !important;
+  max-height: 350px !important;
+  overflow-y: auto !important;
+}
+
+/*
+#28 @osmaav Изменил стили для подсветки кнопки удалить в таблице состава зон красным цветом
+*/
+
+.delButton:after,
+.delButton:before {
+  background-color: red !important;
+}
+
+#configItems > div + ul {
+  max-height: 550px !important;
+}
+
+#configItems > div + div + ul {
+  max-height: 520px !important;
+}
+
+#configItems li {
+  /* margin-bottom: 2px !important; */
+}
+
+/*
+#47 @osmaav Изменил отступы, размеры шрифтов и цвета в списке устройств на странице Приборы
+*/
+
+#configItems .second_items {
+  margin-bottom: 2px !important;
+  font-size: 0.9em !important;
+}
+
+/* размеры в условных единицах */
+#configItems li .name .cell {
+  line-height: 1em !important;
+  font-size: 0.9em !important;
+  /* немного бледнее черного */
+  color: rgb(100, 100, 100) !important;
+}
+
+/* размер шрифты как у родителя */
+#configItems li .name .device_type {
+  font-size: 1em !important;
+}
+
+#configItems .sec_table_name {
+  /* немного бледнее черного */
+  color: rgb(80, 80, 80);
+  margin-top: 2px !important;
+  font-size: 0.9em !important;
+}
+
+/* отступы между строками входов/выходов */
+#configItems ul.second {
+  padding-top: 2px !important;
+}
+
+/* задаю цвет для незаданных входов/выходов */
+#configItems ul.second li .name.empty {
+  font-size: 0.9em !important;
+}
